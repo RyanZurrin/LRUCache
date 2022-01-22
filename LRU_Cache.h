@@ -42,12 +42,12 @@ public:
         }
     }
 
-    V getValue(K key) {
+    V* getValue(K key) {
         if (cache_map.find(key) == cache_map.end()) {
-            return -1;
+            return nullptr;
         } else {
             cache_list.splice(cache_list.begin(), cache_list, cache_map[key]);
-            return cache_map[key]->value;
+            return &(cache_map[key]->value);
         }
     }
 
